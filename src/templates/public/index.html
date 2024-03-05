@@ -1,17 +1,28 @@
 {% extends "base.html" %}
 
-
+<!-- Extende o template base "base.html" -->
 
 {% block content %}
 
-<form action="/" method="POST">
-    <input type="number" name="code" placeholder="Código do Produto">
-    <input type="text" name="name" placeholder="Nome do Produto">
-    <input type="number" name="stock" placeholder="Disponibilidade">
-    <input type="number" name="value" placeholder="Valor do Produto">
-    <input type="text" name="category" placeholder="Categoria do Produto">
+<!-- Inicia o bloco 'content', que substituirá o bloco correspondente no template base -->
 
-    <button type="submit"> Cadastrar </button>
+<form action="/" method="POST">
+    <!-- Formulário com método POST e rota "/" -->
+    <input type="number" name="code" placeholder="Código do Produto">
+    <!-- Campo de entrada para o código do produto -->
+    <input type="text" name="name" placeholder="Nome do Produto">
+    <!-- Campo de entrada para o nome do produto -->
+    <input type="number" name="stock" placeholder="Disponibilidade">
+    <!-- Campo de entrada para a disponibilidade do produto -->
+    <input type="number" name="value" placeholder="Valor do Produto">
+    <!-- Campo de entrada para o valor do produto -->
+    <input type="text" name="category" placeholder="Categoria do Produto">
+    <!-- Campo de entrada para a categoria do produto -->
+
+    <button type="submit">Cadastrar</button>
+    <!-- Botão de envio do formulário -->
 </form>
 
 {% endblock %}
+
+<!-- Finaliza o bloco 'content' -->

@@ -1,3 +1,4 @@
+# Importa a classe Flask do módulo flask
 from flask import Flask
 from src.routes.routes import *
 
@@ -5,5 +6,5 @@ from src.routes.routes import *
 app = Flask(__name__)
 
 # Adiciona as regras de URL definidas no arquivo routes.py
-# Mapeia a rota definida em 'test_controller_route' para o controlador 'test_controller'
+# Mapeia a rota definida em 'index_route' para o controlador 'IndexController'
 app.add_url_rule(routes['index_route'], view_func=routes['IndexController'])
