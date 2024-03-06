@@ -6,7 +6,7 @@
 
 <!-- Inicia o bloco 'content', que substituirá o bloco correspondente no template base -->
 
-<form action="/" method="POST">
+<form action="/update/produto/{{produto.0}}" method="POST">
     <!-- Formulário com método POST e rota "/" -->
     <input type="number" name="code" placeholder="Código do Produto">
     <!-- Campo de entrada para o código do produto -->
@@ -19,19 +19,8 @@
     <input type="text" name="category" placeholder="Categoria do Produto">
     <!-- Campo de entrada para a categoria do produto -->
 
-    <button type="submit">Cadastrar</button>
+    <button type="submit">ATUALIZAR</button>
     <!-- Botão de envio do formulário -->
 </form>
 
-{% for produto in data %}
-        {{produto.1}}
-        <form action="/delete/produto/{{produto.0}}" method="POST">
-            <button> DELETAR </button>
-        </form>
-        <a href="/update/produto/{{produto.0}}"> ATUALIZAR </a>
-        {% else %}
-            NÃO EXISTEM PRODUTOS CADASTRADOS
-    {% endfor %}
 {% endblock %}
-
-<!-- Finaliza o bloco 'content' -->
