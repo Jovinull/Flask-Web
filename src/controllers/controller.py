@@ -11,8 +11,12 @@ class IndexController(MethodView):
         with mysql.cursor() as cur:
             cur.execute('SELECT * FROM produtos')
             data = cur.fetchall()
-        # Retorna o conteúdo renderizado do template 'public/index.html', passando os dados obtidos como contexto
-        return render_template('public/index.html', data=data)
+            
+            cur.execute('SELECT * FROM categories')
+            categories = cur.fetchall()
+            
+            # Retorna o conteúdo renderizado do template 'public/index.html', passando os dados obtidos como contexto
+            return render_template('public/index.html', data=data, categories=categories)
 
     def post(self):
         # Método para lidar com requisições POST
@@ -21,10 +25,11 @@ class IndexController(MethodView):
         name = request.form['name']
         stock = request.form['stock']
         value = request.form['value']
+        category = request.form['category']
         
         # Insere os dados do novo produto no banco de dados
         with mysql.cursor() as cur:
-            cur.execute('INSERT INTO produtos(code, name, stock, value) VALUES(%s, %s, %s, %s)', (code, name, stock, value))
+            cur.execute('INSERT INTO produtos VALUES(%s, %s, %s, %s, %s)', (code, name, stock, value, category))
             cur.connection.commit()
             # Redireciona para a página inicial após a inserção
             return redirect('/')
@@ -66,3 +71,17 @@ class UpdateProdutoController(MethodView):
             cur.connection.commit()
             # Redireciona para a página inicial após a atualização
             return redirect('/')
+
+class CategoriesController(MethodView):
+    def get(self):
+        return render_template('public/categories.html')
+    
+    def post(self):
+        id = request.form['id']
+        name = request.form['name']
+        description = request.form['description']
+
+        with mysql.cursor() as cur:
+            cur.execute('INSERT INTO categories VALUES (%s, %s, %s)', (id, name, description))
+            cur.connection.commit()
+            return 'SUCESSO!'

@@ -11,4 +11,7 @@ routes = {
     
     'update_route': '/update/produto/<int:code>',
     'UpdateController': UpdateProdutoController.as_view('Update'),
+    
+    'categories_route': '/create/categorie',
+    'CategoriesController': CategoriesController.as_view('Categories'),
 }

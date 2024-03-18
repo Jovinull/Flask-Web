@@ -12,3 +12,5 @@ app.add_url_rule(routes['index_route'], view_func=routes['IndexController'])
 app.add_url_rule(routes['delete_route'], view_func=routes['DeleteController'])
 
 app.add_url_rule(routes['update_route'], view_func=routes['UpdateController'])
+
+app.add_url_rule(routes['categories_route'], view_func=routes['CategoriesController'])
