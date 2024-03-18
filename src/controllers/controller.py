@@ -1,6 +1,6 @@
 # Importa a classe MethodView do Flask e módulos necessários para a renderização de templates e manipulação de requisições
 from flask.views import MethodView
-from flask import request, render_template, redirect
+from flask import request, render_template, redirect, flash
 from src.db import mysql  # Importa a biblioteca PyMySQL
 
 # Define um controlador de exemplo utilizando a classe MethodView do Flask
@@ -29,8 +29,12 @@ class IndexController(MethodView):
         
         # Insere os dados do novo produto no banco de dados
         with mysql.cursor() as cur:
-            cur.execute('INSERT INTO produtos VALUES(%s, %s, %s, %s, %s)', (code, name, stock, value, category))
-            cur.connection.commit()
+            try:
+                cur.execute('INSERT INTO produtos VALUES(%s, %s, %s, %s, %s)', (code, name, stock, value, category))
+                cur.connection.commit()
+                flash('PRODUTO CADASTRADO COM SUCESSO', 'success')
+            except:
+                flash('ESTE PRODUTO NÃO FOI CADASTRADO', 'error')
             # Redireciona para a página inicial após a inserção
             return redirect('/')
 

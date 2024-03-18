@@ -5,6 +5,10 @@ from src.routes.routes import *
 # Inicializa a aplicação Flask
 app = Flask(__name__)
 
+app.config.from_mapping(
+    SECRET_KEY = 'development'
+)
+
 # Adiciona as regras de URL definidas no arquivo routes.py
 # Mapeia a rota definida em 'index_route' para o controlador 'IndexController'
 app.add_url_rule(routes['index_route'], view_func=routes['IndexController'])

@@ -4,11 +4,17 @@
     <!-- Define a codificação de caracteres e a configuração de viewport para responsividade -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <!-- Define o título da página -->
     <title>FLASK WEB</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+
+    {% include "partials/msg.html" %}
+    {% include "partials/nav.html" %}
+
     <!-- Define um bloco chamado 'content', que pode ser preenchido nos templates filhos -->
     {% block content %}
 
