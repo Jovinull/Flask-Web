@@ -24,14 +24,22 @@
 </form>
 
 {% for produto in data %}
-        {{produto.1}}
-        <form action="/delete/produto/{{produto.0}}" method="POST">
-            <button> DELETAR </button>
-        </form>
-        <a href="/update/produto/{{produto.0}}"> ATUALIZAR </a>
-        {% else %}
-            NÃO EXISTEM PRODUTOS CADASTRADOS
-    {% endfor %}
+    <!-- Loop através dos produtos fornecidos como contexto -->
+    {{produto.1}}
+    <!-- Exibe o nome do produto -->
+    <form action="/delete/produto/{{produto.0}}" method="POST">
+        <!-- Formulário para excluir o produto com o código correspondente -->
+        <button>DELETAR</button>
+        <!-- Botão para deletar o produto -->
+    </form>
+    <a href="/update/produto/{{produto.0}}">ATUALIZAR</a>
+    <!-- Link para atualizar os detalhes do produto -->
+{% else %}
+    <!-- Se não houver produtos cadastrados -->
+    NÃO EXISTEM PRODUTOS CADASTRADOS
+{% endfor %}
+<!-- Fim do loop -->
+
 {% endblock %}
 
 <!-- Finaliza o bloco 'content' -->
