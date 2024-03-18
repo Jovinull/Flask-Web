@@ -1,4 +1,4 @@
-{% with success = get_flashed_messages(category_filter=['success]') %}
+{% with success = get_flashed_messages(category_filter=['success']) %}
 
     {% if success %}
 
@@ -16,7 +16,7 @@
 
 {% endwith %}
 
-{% with error = get_flashed_messages(category_filter=['error]') %}
+{% with error = get_flashed_messages(category_filter=['error']) %}
 
     {% if error %}
 
