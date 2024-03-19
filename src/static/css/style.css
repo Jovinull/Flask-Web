@@ -1,0 +1,78 @@
+/* Estilos para o navbar */
+.navbar {
+    background-color: #f8f9fa; /* Cor de fundo do navbar */
+    padding: 10px 20px; /* Espaçamento interno */
+}
+
+.navbar-content {
+    display: flex; /* Torna os itens filhos em flexbox */
+    align-items: center; /* Alinha os itens verticalmente */
+}
+
+.nav-brand {
+    font-size: 20px; /* Tamanho da fonte do logotipo */
+    color: #333; /* Cor do texto */
+    text-decoration: none; /* Remove sublinhado do link */
+}
+
+.navbar-nav-fluid .btn {
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none; /* Remove borda do botão */
+    margin-left: 10px; /* Espaçamento entre os botões */
+}
+
+.navbar-nav-fluid .btn:hover {
+    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+}
+
+/* Estilos para mensagens de sucesso */
+.alert-success {
+    color: #155724; /* Cor do texto */
+    background-color: #d4edda; /* Cor de fundo */
+    border-color: #c3e6cb; /* Cor da borda */
+}
+
+.alert-success strong {
+    font-weight: bold; /* Define a fonte como negrito */
+}
+
+.alert-success i {
+    margin-left: 5px; /* Espaçamento entre o ícone e o texto */
+}
+
+/* Estilos para mensagens de erro */
+.alert-danger {
+    color: #721c24; /* Cor do texto */
+    background-color: #f8d7da; /* Cor de fundo */
+    border-color: #f5c6cb; /* Cor da borda */
+}
+
+.alert-danger strong {
+    font-weight: bold; /* Define a fonte como negrito */
+}
+
+.alert-danger i {
+    margin-left: 5px; /* Espaçamento entre o ícone e o texto */
+}
+
+/* Estilos comuns para ambas as mensagens */
+.alert {
+    position: relative; /* Define a posição como relativa */
+    padding: .75rem 1.25rem; /* Espaçamento interno */
+    margin-bottom: 1rem; /* Espaçamento inferior */
+    border: 1px solid transparent; /* Borda transparente */
+    border-radius: .25rem; /* Raio da borda */
+}
+
+.alert-dismissible {
+    padding-right: 4rem; /* Espaçamento à direita para o botão de fechar */
+}
+
+.alert-dismissible .close {
+    position: absolute; /* Define a posição como absoluta */
+    top: 0; /* Alinha o botão ao topo */
+    right: 0; /* Alinha o botão à direita */
+    padding: .75rem 1.25rem; /* Espaçamento interno */
+    color: inherit; /* Cor do texto herda do elemento pai */
+}

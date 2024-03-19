@@ -1,36 +1,62 @@
 {% with success = get_flashed_messages(category_filter=['success']) %}
-
+    <!-- Verifica se há mensagens de sucesso na sessão -->
     {% if success %}
-
+        <!-- Se houver mensagens de sucesso -->
         <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <!-- Exibe um alerta de sucesso -->
             {% for message in success %}
+                <!-- Itera sobre as mensagens de sucesso -->
                 <strong>Resposta!</strong>
+                <!-- Exibe a string "Resposta!" em negrito -->
                 <i class="fas fa-solid fa-check-double">{{message}}</i>
+                <!-- Exibe o ícone de verificação e a mensagem de sucesso -->
             {% endfor %}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <!-- Botão para fechar o alerta -->
                 <span aria-hidden="true">&times;</span>
+                <!-- Ícone "x" para fechar o alerta -->
             </button>
         </div>
-
     {% endif %}
-
 {% endwith %}
 
 {% with error = get_flashed_messages(category_filter=['error']) %}
-
+    <!-- Verifica se há mensagens de erro na sessão -->
     {% if error %}
-
+        <!-- Se houver mensagens de erro -->
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <!-- Exibe um alerta de erro -->
             {% for message in error %}
+                <!-- Itera sobre as mensagens de erro -->
                 <strong>Resposta!</strong>
+                <!-- Exibe a string "Resposta!" em negrito -->
                 <i class="fas fa-solid fa-xmark">{{message}}</i>
+                <!-- Exibe o ícone de "x" e a mensagem de erro -->
             {% endfor %}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <!-- Botão para fechar o alerta -->
                 <span aria-hidden="true">&times;</span>
+                <!-- Ícone "x" para fechar o alerta -->
             </button>
         </div>
-
     {% endif %}
-
 {% endwith %}
 
+<script>
+    // Função para fechar a mensagem ao clicar no botão "x"
+    document.addEventListener('DOMContentLoaded', function() {
+        // Aguarda o carregamento completo do DOM
+        var closeButtons = document.querySelectorAll('.close');
+        // Seleciona todos os botões com a classe 'close'
+        closeButtons.forEach(function(button) {
+            // Itera sobre todos os botões selecionados
+            button.addEventListener('click', function() {
+                // Adiciona um evento de clique para cada botão
+                var alert = this.parentNode;
+                // Obtém o elemento pai do botão (o alerta)
+                alert.style.display = 'none';
+                // Esconde o alerta definindo seu estilo para 'none'
+            });
+        });
+    });
+</script>
