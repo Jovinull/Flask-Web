@@ -1,78 +1,54 @@
-/* Estilos para o navbar */
-.navbar {
-    background-color: #f8f9fa; /* Cor de fundo do navbar */
-    padding: 10px 20px; /* Espaçamento interno */
+.modal-title {
+    margin-bottom: 0;
+    line-height: 1.5;
+    background-color: green;
+    color: yellow;
 }
 
-.navbar-content {
-    display: flex; /* Torna os itens filhos em flexbox */
-    align-items: center; /* Alinha os itens verticalmente */
+.modal-header {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: calc(.3rem -1px);
+    border-top-right-radius: calc(.3rem -1px);
+    background-color: green;
 }
 
-.nav-brand {
-    font-size: 20px; /* Tamanho da fonte do logotipo */
-    color: #333; /* Cor do texto */
-    text-decoration: none; /* Remove sublinhado do link */
+.modal-body {
+    position: relative;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1rem;
+    background-color: rgb(209, 252, 93);
 }
 
-.navbar-nav-fluid .btn {
-    background-color: #007bff; /* Cor de fundo do botão */
-    color: #fff; /* Cor do texto do botão */
-    border: none; /* Remove borda do botão */
-    margin-left: 10px; /* Espaçamento entre os botões */
+.modal-dialog .modal-content {
+    border: 0;
+    border-radius: .125rem;
+    background-color: rgb(209, 252, 93);
+    -webkit-box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
+    box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
 }
 
-.navbar-nav-fluid .btn:hover {
-    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+.card {
+    background-color: rgb(198, 252, 198);
 }
 
-/* Estilos para mensagens de sucesso */
-.alert-success {
-    color: #155724; /* Cor do texto */
-    background-color: #d4edda; /* Cor de fundo */
-    border-color: #c3e6cb; /* Cor da borda */
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: green;
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    color: yellow;
 }
 
-.alert-success strong {
-    font-weight: bold; /* Define a fonte como negrito */
-}
-
-.alert-success i {
-    margin-left: 5px; /* Espaçamento entre o ícone e o texto */
-}
-
-/* Estilos para mensagens de erro */
-.alert-danger {
-    color: #721c24; /* Cor do texto */
-    background-color: #f8d7da; /* Cor de fundo */
-    border-color: #f5c6cb; /* Cor da borda */
-}
-
-.alert-danger strong {
-    font-weight: bold; /* Define a fonte como negrito */
-}
-
-.alert-danger i {
-    margin-left: 5px; /* Espaçamento entre o ícone e o texto */
-}
-
-/* Estilos comuns para ambas as mensagens */
-.alert {
-    position: relative; /* Define a posição como relativa */
-    padding: .75rem 1.25rem; /* Espaçamento interno */
-    margin-bottom: 1rem; /* Espaçamento inferior */
-    border: 1px solid transparent; /* Borda transparente */
-    border-radius: .25rem; /* Raio da borda */
-}
-
-.alert-dismissible {
-    padding-right: 4rem; /* Espaçamento à direita para o botão de fechar */
-}
-
-.alert-dismissible .close {
-    position: absolute; /* Define a posição como absoluta */
-    top: 0; /* Alinha o botão ao topo */
-    right: 0; /* Alinha o botão à direita */
-    padding: .75rem 1.25rem; /* Espaçamento interno */
-    color: inherit; /* Cor do texto herda do elemento pai */
+.md-firm label{
+    font-size: 1rem;
+    color: blue;
+    font-weight: 5rem;
 }

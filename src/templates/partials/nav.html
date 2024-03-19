@@ -2,15 +2,54 @@
     <!-- Cria uma barra de navegação com posicionamento fixo no topo da página -->
     <div class="container-fluid">
         <!-- Define um contêiner fluido para o conteúdo da barra de navegação -->
-        <div class="navbar-content">
-            <!-- Conteúdo da barra de navegação -->
-            <a class="nav-brand" href="/">FLASK WEB</a>
-            <!-- Link para a página inicial com o texto "FLASK WEB" -->
-            <div class="navbar-nav-fluid">
-                <!-- Define uma área para itens de navegação -->
-                <button class="btn btn-sucess btn-sm">Cadastrar Categoria <i class="fas fa-solid fa-square-plus"></i></button>
-                <!-- Botão para cadastrar uma categoria com um ícone de "mais" -->
-            </div>
+        <!-- Conteúdo da barra de navegação -->
+        <a class="navbar-brand" href="/">FLASK WEB</a>
+        <!-- Link para a página inicial com o texto "FLASK WEB" -->
+        <div class="navbar-nav ml-auto">
+            <!-- Define uma área para itens de navegação -->
+            <button class="btn btn-sucess btn-sm" data-toggle="modal" data-target="#modalForm"> Cadastrar Categoria <i
+                    class="fas fa-plus"></i></button>
+            <!-- Botão para cadastrar uma categoria com um ícone de "mais" -->
         </div>
     </div>
 </nav>
+
+<!-- Modal -->
+<div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold"> Cadastrar Categoria </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <form action="/create/categorie" method="POST">
+                    <div class="md-form mb-5">
+                        <i class="fas fa-id-card prefix grey-text"></i>
+                        <input type="number" name="id" id="defaultForm-email" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="defaultForm-email">ID</label>
+                    </div>
+
+                    <div class="md-form mb-4">
+                        <i class="fas fa-signature prefix grey-text"></i>
+                        <input type="text" name="name" id="defaultForm-pass" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="defaultForm-pass">Nome Categoria</label>
+                    </div>
+
+                    <div class="md-form mb-4">
+                        <i class="fas fa-pen-square prefix grey-text"></i>
+                        <textarea name="description" id="defaultForm-description" class="form-control"
+                            placeholder="description"></textarea>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-primary btn-block">
+                            Cadastrar <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

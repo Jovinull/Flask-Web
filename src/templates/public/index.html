@@ -2,48 +2,60 @@
 
 <!-- Extende o template base "base.html" -->
 
+{% block title %} Loja Flask {% endblock %}
+
 {% block content %}
 
-<!-- Inicia o bloco 'content', que substituirá o bloco correspondente no template base -->
+<main id="main">
+    <div class="container">
+        <div class="row g-0 justify-content-center">
+            <div class="col-lg-5 d-flex">
+                <div id="content-main" class="align-self-center mx-auto my-5">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            Cadastrar Produto
+                        </div>
+                        <div class="card-body">
+                            <div action="/" method="POST" class="p-10">
+                                <div class="md-form row">
+                                    <div class="col">
+                                        <input type="number" name="code" class="form-control" id="codeInput" required autofocus>
+                                        <label for="codeInput">Produto ID</label>
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" name="name" class="form-control" id="nameInput" required autofocus>
+                                        <label for="nameInput">Nome do Produto</label>
+                                    </div>
+                                </div>
 
-<form action="/" method="POST">
-    <!-- Formulário com método POST e rota "/" -->
-    <input type="number" name="code" placeholder="Código do Produto">
-    <!-- Campo de entrada para o código do produto -->
-    <input type="text" name="name" placeholder="Nome do Produto">
-    <!-- Campo de entrada para o nome do produto -->
-    <input type="number" name="stock" placeholder="Disponibilidade">
-    <!-- Campo de entrada para a disponibilidade do produto -->
-    <input type="number" name="value" placeholder="Valor do Produto">
-    <!-- Campo de entrada para o valor do produto -->
+                                <div class="md-form row">
+                                    <div class="col">
+                                        <input type="number" name="stock" class="form-control" id="stockInput" required autofocus>
+                                        <label for="stockInput">Produto Estoque</label>
+                                    </div>
+                                    <div class="col">
+                                        <input type="number" name="value" class="form-control" id="valueInput" required autofocus>
+                                        <label for="valueInput">Valor</label>
+                                    </div>
+                                </div>
 
-    <select name="category">
-        <option selected>SELECIONE UMA CATEGORIA</option>
-        {% for categorie in categories %}
-            <option value='{{categorie.0}}'>{{categorie.1}}</option>
-        {% endfor %}
-    </select>
+                                <div class="md-form">
+                                    <select name="category" class="mdb-select" id="categoryInput">
+                                        <option selected>Selecione Categoria</option>
+                                        {% for categorie in categories %}
+                                            <option value="{{categorie.0}}">{{categorie.1}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
 
-    <button type="submit">Cadastrar</button>
-    <!-- Botão de envio do formulário -->
-</form>
-
-{% for produto in data %}
-    <!-- Loop através dos produtos fornecidos como contexto -->
-    {{produto.1}}
-    <!-- Exibe o nome do produto -->
-    <form action="/delete/produto/{{produto.0}}" method="POST">
-        <!-- Formulário para excluir o produto com o código correspondente -->
-        <button>DELETAR</button>
-        <!-- Botão para deletar o produto -->
-    </form>
-    <a href="/update/produto/{{produto.0}}">ATUALIZAR</a>
-    <!-- Link para atualizar os detalhes do produto -->
-{% else %}
-    <!-- Se não houver produtos cadastrados -->
-    NÃO EXISTEM PRODUTOS CADASTRADOS
-{% endfor %}
-<!-- Fim do loop -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 
 {% endblock %}
 
