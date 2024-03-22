@@ -2,7 +2,6 @@
     <!-- Cria uma barra de navegação com posicionamento fixo no topo da página -->
     <div class="container-fluid">
         <!-- Define um contêiner fluido para o conteúdo da barra de navegação -->
-        <!-- Conteúdo da barra de navegação -->
         <a class="navbar-brand" href="/">FLASK WEB</a>
         <!-- Link para a página inicial com o texto "FLASK WEB" -->
         <div class="navbar-nav ml-auto">
@@ -16,36 +15,58 @@
 
 <!-- Modal -->
 <div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!-- Define um modal com ID "modalForm" -->
     <div class="modal-dialog" role="document">
+        <!-- Define a estrutura do modal -->
         <div class="modal-content">
+            <!-- Conteúdo do modal -->
             <div class="modal-header text-center">
+                <!-- Cabeçalho do modal -->
                 <h4 class="modal-title w-100 font-weight-bold"> Cadastrar Categoria </h4>
+                <!-- Título do modal -->
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <!-- Botão para fechar o modal -->
                     <span aria-hidden="true">&times;</span>
+                    <!-- Ícone "x" para fechar o modal -->
                 </button>
             </div>
             <div class="modal-body mx-3">
+                <!-- Corpo do modal -->
                 <form action="/create/categorie" method="POST">
+                    <!-- Formulário para cadastrar uma categoria -->
                     <div class="md-form mb-5">
+                        <!-- Campo para o ID da categoria -->
                         <i class="fas fa-id-card prefix grey-text"></i>
+                        <!-- Ícone do campo -->
                         <input type="number" name="id" id="defaultForm-email" class="form-control validate">
+                        <!-- Campo de entrada para o ID -->
                         <label data-error="wrong" data-success="right" for="defaultForm-email">ID</label>
+                        <!-- Rótulo do campo -->
                     </div>
 
                     <div class="md-form mb-4">
+                        <!-- Campo para o nome da categoria -->
                         <i class="fas fa-signature prefix grey-text"></i>
+                        <!-- Ícone do campo -->
                         <input type="text" name="name" id="defaultForm-pass" class="form-control validate">
+                        <!-- Campo de entrada para o nome -->
                         <label data-error="wrong" data-success="right" for="defaultForm-pass">Nome Categoria</label>
+                        <!-- Rótulo do campo -->
                     </div>
 
                     <div class="md-form mb-4">
+                        <!-- Campo para a descrição da categoria -->
                         <i class="fas fa-pen-square prefix grey-text"></i>
+                        <!-- Ícone do campo -->
                         <textarea name="description" id="defaultForm-description" class="form-control"
                             placeholder="description"></textarea>
+                        <!-- Campo de entrada para a descrição -->
                     </div>
                     <div class="d-flex justify-content-center">
+                        <!-- Botão para cadastrar a categoria -->
                         <button class="btn btn-primary btn-block">
                             Cadastrar <i class="fas fa-plus"></i>
+                            <!-- Texto do botão e ícone -->
                         </button>
                     </div>
                 </form>

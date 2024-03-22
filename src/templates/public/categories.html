@@ -1,13 +1,21 @@
 {% extends "base.html" %}
+<!-- Define que este template estende o template base "base.html" -->
 
 {% block content %}
+<!-- Inicia o bloco 'content', que substituirá o bloco correspondente no template base -->
 
 <form action="/create/categorie" method="POST">
+    <!-- Formulário com método POST e rota "/create/categorie" -->
     <input type="number" name="id" placeholder="ID DA CATEGORIA">
+    <!-- Campo de entrada para o ID da categoria -->
     <input type="text" name="name" placeholder="NOME DA CATEGORIA">
+    <!-- Campo de entrada para o nome da categoria -->
     <textarea name="description" placeholder="DESCRIÇÃO"></textarea>
+    <!-- Campo de entrada para a descrição da categoria -->
 
     <button type="submit">CADASTRAR CATEGORIAS</button>
+    <!-- Botão de envio do formulário -->
 </form>
 
 {% endblock %}
+<!-- Finaliza o bloco 'content' -->

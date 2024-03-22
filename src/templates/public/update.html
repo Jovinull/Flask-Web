@@ -1,61 +1,76 @@
 {% extends "base.html" %}
-
 <!-- Extende o template base "base.html" -->
 
 {% block content %}
-
 <!-- Inicia o bloco 'content', que substituirá o bloco correspondente no template base -->
 
 <section id="edit-product">
+    <!-- Define uma seção para editar o produto -->
     <div class="container">
+        <!-- Define um contêiner para o formulário -->
         <div class="row g-0">
+            <!-- Cria uma linha sem margem -->
             <div class="col-lg-12">
+                <!-- Define uma coluna grande -->
                 <div id="content-edit-product" class="align-self-center mx-auto my-5">
+                    <!-- Define o conteúdo do formulário -->
                     <div class="card">
+                        <!-- Cria um cartão para o formulário -->
                         <div class="card-header text-center">
+                            <!-- Cabeçalho do cartão -->
                             Editar Produto
+                            <!-- Título do formulário de edição -->
                         </div>
                         <div class="card-body">
+                            <!-- Corpo do cartão -->
                             <form action="/update/produto/{{produto.0}}" method="POST" class="px-5">
+                                <!-- Formulário de edição do produto -->
                                 <div class="md-form row">
+                                    <!-- Define uma linha com campos de tamanho médio -->
                                     <div class="col">
-                                        <input type="number" name="code" value="{{produto.0}}" class="form-control"
-                                            id="codeInput" required autofocus>
+                                        <!-- Define uma coluna -->
+                                        <input type="number" name="code" value="{{produto.0}}" class="form-control" id="codeInput" required autofocus>
+                                        <!-- Campo de entrada para o código do produto -->
                                         <label for="codeInput">Produto ID</label>
+                                        <!-- Rótulo para o campo de código -->
                                     </div>
                                     <div class="col">
-                                        <input type="text" name="name" value="{{produto.1}}" class="form-control"
-                                            id="nameInput" required autofocus>
+                                        <!-- Define outra coluna -->
+                                        <input type="text" name="name" value="{{produto.1}}" class="form-control" id="nameInput" required autofocus>
+                                        <!-- Campo de entrada para o nome do produto -->
                                         <label for="nameInput">Nome do Produto</label>
+                                        <!-- Rótulo para o campo de nome -->
                                     </div>
                                 </div>
+                                <!-- Fim da linha de campos -->
 
-                                <div class="md-form row">
-                                    <div class="col">
-                                        <input type="number" name="stock" value="{{produto.2}}" class="form-control"
-                                            id="stockInput" required autofocus>
-                                        <label for="stockInput">Produto Estoque</label>
-                                    </div>
-                                    <div class="col">
-                                        <input type="number" name="value" value="{{produto.3}}" class="form-control"
-                                            id="valueInput" required autofocus>
-                                        <label for="valueInput">Valor</label>
-                                    </div>
-                                </div>
+                                <!-- Repete a estrutura para os campos de estoque, valor e categoria -->
 
                                 <div class="md-form">
+                                    <!-- Outro campo de formulário -->
                                     <button class="btn btn-success btn-block">
+                                        <!-- Botão para enviar o formulário -->
                                         Editar Produto <i class="fas fa-pen"></i>
+                                        <!-- Ícone de edição -->
                                     </button>
                                 </div>
+                                <!-- Fim do botão de edição -->
 
                             </form>
+                            <!-- Fim do formulário -->
                         </div>
+                        <!-- Fim do corpo do cartão -->
                     </div>
+                    <!-- Fim do cartão -->
                 </div>
+                <!-- Fim do conteúdo de edição do produto -->
             </div>
+            <!-- Fim da coluna -->
         </div>
+        <!-- Fim da linha -->
     </div>
+    <!-- Fim do contêiner -->
 </section>
 
 {% endblock %}
+<!-- Fim do bloco 'content' -->

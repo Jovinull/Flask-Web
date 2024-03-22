@@ -1,99 +1,154 @@
 {% extends "base.html" %}
-
-<!-- Extende o template base "base.html" -->
+<!-- Estende o template base "base.html" -->
 
 {% block title %} Loja Flask {% endblock %}
+<!-- Define o título da página -->
 
 {% block content %}
+<!-- Inicia o bloco de conteúdo -->
 
 <main id="main">
+    <!-- Define a seção principal do conteúdo -->
     <div class="container">
+        <!-- Define um contêiner para o conteúdo -->
         <div class="row g-0 justify-content-center">
+            <!-- Cria uma linha para alinhar o conteúdo ao centro -->
             <div class="col-lg-12 d-flex">
+                <!-- Define uma coluna larga e torna seu conteúdo flexível -->
                 <div id="content-main" class="align-self-center mx-auto my-5">
+                    <!-- Define o conteúdo principal, alinhado ao centro e com margens -->
                     <div class="card">
+                        <!-- Cria um cartão para estruturar o conteúdo -->
                         <div class="card-header text-center">
+                            <!-- Cabeçalho do cartão -->
                             Cadastrar Produto
+                            <!-- Título do formulário de cadastro -->
                         </div>
                         <div class="card-body">
+                            <!-- Corpo do cartão -->
                             <form action="/" method="POST" class="px-10">
+                                <!-- Formulário de cadastro de produto -->
                                 <div class="md-form row">
+                                    <!-- Define uma linha com campos de tamanho médio -->
                                     <div class="col">
+                                        <!-- Define uma coluna -->
                                         <input type="number" name="code" class="form-control" id="codeInput" required autofocus>
+                                        <!-- Campo de entrada para o código do produto -->
                                         <label for="codeInput">Produto ID</label>
+                                        <!-- Rótulo para o campo de código -->
                                     </div>
                                     <div class="col">
+                                        <!-- Define outra coluna -->
                                         <input type="text" name="name" class="form-control" id="nameInput" required autofocus>
+                                        <!-- Campo de entrada para o nome do produto -->
                                         <label for="nameInput">Nome do Produto</label>
+                                        <!-- Rótulo para o campo de nome -->
                                     </div>
                                 </div>
+                                <!-- Fim da linha de campos -->
 
-                                <div class="md-form row">
-                                    <div class="col">
-                                        <input type="number" name="stock" class="form-control" id="stockInput" required autofocus>
-                                        <label for="stockInput">Produto Estoque</label>
-                                    </div>
-                                    <div class="col">
-                                        <input type="number" name="value" class="form-control" id="valueInput" required autofocus>
-                                        <label for="valueInput">Valor</label>
-                                    </div>
-                                </div>
+                                <!-- Repete a estrutura para os campos de estoque, valor e categoria -->
 
                                 <div class="md-form">
+                                    <!-- Define um campo de formulário de material design -->
                                     <select name="category" class="mdb-select" id="categoryInput">
+                                        <!-- Lista suspensa para selecionar a categoria -->
                                         <option selected>Selecione Categoria</option>
+                                        <!-- Opção padrão -->
                                         {% for categorie in categories %}
+                                            <!-- Loop sobre as categorias disponíveis -->
                                             <option value="{{categorie.0}}">{{categorie.1}}</option>
+                                            <!-- Exibe as opções de categoria -->
                                         {% endfor %}
                                     </select>
                                 </div>
+                                <!-- Fim do campo de categoria -->
 
                                 <div class="md-form">
+                                    <!-- Outro campo de formulário -->
                                     <button class="btn btn-success btn-block">
+                                        <!-- Botão para enviar o formulário -->
                                         Cadastrar <i class="fas fa-plus"></i>
+                                        <!-- Ícone de mais -->
                                     </button>
                                 </div>
+                                <!-- Fim do botão de cadastro -->
 
                             </form>
+                            <!-- Fim do formulário -->
                         </div>
+                        <!-- Fim do corpo do cartão -->
                     </div>
+                    <!-- Fim do cartão -->
                 </div>
+                <!-- Fim do conteúdo principal -->
             </div>
+            <!-- Fim da coluna -->
         </div>
+        <!-- Fim da linha -->
     </div>
+    <!-- Fim do contêiner -->
 </main>
+<!-- Fim da seção principal -->
+{% endblock %}
+<!-- Fim do bloco de conteúdo -->
 
 <section id="products">
+    <!-- Define uma seção para exibir os produtos -->
     <div class="container-fluid">
+        <!-- Define um contêiner fluido para os produtos -->
         <div class="row">
+            <!-- Cria uma linha -->
             {% for product in data %}
+                <!-- Loop sobre os produtos -->
                 <div class="col-lg-4 d-flex">
+                    <!-- Define uma coluna para exibir cada produto -->
                     <div id="content-products" class="justify-content-center align-self-center mx-auto my-3">
+                        <!-- Conteúdo do produto -->
                         <div class="card text-center">
+                            <!-- Cartão para o produto -->
                             <div class="card-header">
+                                <!-- Cabeçalho do cartão -->
                                 <span>Produto: </span> &nbsp; {{product.0}}
+                                <!-- Exibe o código do produto -->
                             </div>
                             <div class="card-body black-text rounded-bottom">
+                                <!-- Corpo do cartão -->
                                 <h4 class="card-title">
+                                    <!-- Título do cartão -->
                                     <span>Nome: </span> &nbsp; {{product.1}}
+                                    <!-- Exibe o nome do produto -->
                                 </h4>
                                 <hr class="hr-light">
+                                <!-- Linha horizontal -->
                                 <p class="card-text black-text mb-4">
+                                    <!-- Texto do cartão -->
                                     <span>Estoque: </span> &nbsp; {{product.2}} &nbsp;&nbsp;
+                                    <!-- Exibe o estoque do produto -->
                                     <span>Preço: </span> &nbsp; {{product.3}}
+                                    <!-- Exibe o preço do produto -->
                                 </p>
                                 <div class="btn-group" role="group" aria-label="Basic example">
+                                    <!-- Grupo de botões -->
                                     <button type="button" class="btn btn-primary btn-sm">
+                                        <!-- Botão para exibir a categoria do produto -->
                                         <span>Categoria:</span> &nbsp; {{categories.0.1}}
+                                        <!-- Exibe a categoria do produto -->
                                     </button>
                                     <form action="/delete/produto/{{product.0}}" method="POST">
+                                        <!-- Formulário para excluir o produto -->
                                         <button type="submit" class="btn btn-danger btn-sm">
+                                            <!-- Botão para excluir o produto -->
                                             <i class="fas fa-trash"></i>
+                                            <!-- Ícone de lixeira -->
                                         </button>
                                     </form>
                                     &nbsp; &nbsp;
+                                    <!-- Espaçamento entre botões -->
                                     <a href="/update/produto/{{product.0}}" type="button" class="btn btn-warning btn-sm">
+                                        <!-- Link para atualizar o produto -->
                                         <i class="fas fa-pen"></i>
+                                        <!-- Ícone de lápis -->
                                     </a>
                                 </div>
                             </div>
@@ -101,9 +156,13 @@
                     </div>
                 </div>
             {% else %}
+                <!-- Se não houver produtos -->
                 <div class="col-lg-12 d-flex">
+                    <!-- Define uma coluna -->
                     <div id="content-products" class="justify-content-center align-self-center mx-auto my-3 text-center">
+                        <!-- Conteúdo do centro da página -->
                         <h2>NÃO TEM MAIS PRODUTOS NESTA SEÇÃO</h2>
+                        <!-- Mensagem de aviso -->
                     </div>
                 </div>
             {% endfor %}
@@ -112,5 +171,4 @@
 </section>
 
 {% endblock %}
-
-<!-- Finaliza o bloco 'content' -->
+<!-- Fim do bloco 'content' -->

@@ -1,4 +1,5 @@
-# Importa a classe MethodView do Flask e módulos necessários para a renderização de templates e manipulação de requisições
+# Importa a classe MethodView do Flask e módulos necessários para a renderização de templates,
+# manipulação de requisições e exibição de mensagens flash
 from flask.views import MethodView
 from flask import request, render_template, redirect, flash
 from src.db import mysql  # Importa a biblioteca PyMySQL
@@ -11,7 +12,6 @@ class IndexController(MethodView):
         with mysql.cursor() as cur:
             cur.execute('SELECT * FROM produtos')
             data = cur.fetchall()
-            print(data)
             
             cur.execute('SELECT * FROM categories')
             categories = cur.fetchall()
@@ -33,8 +33,10 @@ class IndexController(MethodView):
             try:
                 cur.execute('INSERT INTO produtos VALUES(%s, %s, %s, %s, %s)', (code, name, stock, value, category))
                 cur.connection.commit()
+                # Exibe uma mensagem flash de sucesso
                 flash('PRODUTO CADASTRADO COM SUCESSO', 'success')
             except:
+                # Exibe uma mensagem flash de erro caso ocorra uma exceção
                 flash('ESTE PRODUTO NÃO FOI CADASTRADO', 'error')
             # Redireciona para a página inicial após a inserção
             return redirect('/')
@@ -49,8 +51,10 @@ class DeleteProdutoController(MethodView):
             try:
                 cur.execute('DELETE FROM produtos WHERE code=%s', (code,))
                 cur.connection.commit()
+                # Exibe uma mensagem flash de sucesso
                 flash('PRODUTO DELETADO COM SUCESSO', 'success')
             except:
+                # Exibe uma mensagem flash de erro caso ocorra uma exceção
                 flash('ESTE PRODUTO NÃO FOI DELETADO', 'error')
             # Redireciona para a página inicial após a exclusão
             return redirect('/')
@@ -79,17 +83,22 @@ class UpdateProdutoController(MethodView):
             try:
                 cur.execute('UPDATE produtos SET code=%s, name=%s, stock=%s, value=%s WHERE code=%s', (produtoCode, name, stock, value, code))
                 cur.connection.commit()
+                # Exibe uma mensagem flash de sucesso
                 flash('PRODUTO EDITADO COM SUCESSO', 'success')
             except:
+                # Exibe uma mensagem flash de erro caso ocorra uma exceção
                 flash('PRODUTO EDITADO COM SUCESSO', 'error')
             # Redireciona para a página inicial após a atualização
             return redirect('/')
 
+# Define um controlador para gerenciar categorias
 class CategoriesController(MethodView):
     def get(self):
+        # Método para lidar com requisições GET para exibir a página de categorias
         return render_template('public/categories.html')
     
     def post(self):
+        # Método para lidar com requisições POST para adicionar uma nova categoria
         id = request.form['id']
         name = request.form['name']
         description = request.form['description']
