@@ -11,6 +11,7 @@ class IndexController(MethodView):
         with mysql.cursor() as cur:
             cur.execute('SELECT * FROM produtos')
             data = cur.fetchall()
+            print(data)
             
             cur.execute('SELECT * FROM categories')
             categories = cur.fetchall()
@@ -45,8 +46,12 @@ class DeleteProdutoController(MethodView):
         # Obtém o código do produto a ser excluído da URL
         # Executa uma instrução SQL para excluir o produto com o código fornecido
         with mysql.cursor() as cur:
-            cur.execute('DELETE FROM produtos WHERE code=%s', (code,))
-            cur.connection.commit()
+            try:
+                cur.execute('DELETE FROM produtos WHERE code=%s', (code,))
+                cur.connection.commit()
+                flash('PRODUTO DELETADO COM SUCESSO', 'success')
+            except:
+                flash('ESTE PRODUTO NÃO FOI DELETADO', 'error')
             # Redireciona para a página inicial após a exclusão
             return redirect('/')
 

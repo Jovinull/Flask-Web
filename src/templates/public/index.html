@@ -9,14 +9,14 @@
 <main id="main">
     <div class="container">
         <div class="row g-0 justify-content-center">
-            <div class="col-lg-5 d-flex">
+            <div class="col-lg-12 d-flex">
                 <div id="content-main" class="align-self-center mx-auto my-5">
                     <div class="card">
                         <div class="card-header text-center">
                             Cadastrar Produto
                         </div>
                         <div class="card-body">
-                            <div action="/" method="POST" class="p-10">
+                            <form action="/" method="POST" class="px-10">
                                 <div class="md-form row">
                                     <div class="col">
                                         <input type="number" name="code" class="form-control" id="codeInput" required autofocus>
@@ -48,7 +48,13 @@
                                     </select>
                                 </div>
 
-                            </div>
+                                <div class="md-form">
+                                    <button class="btn btn-success btn-block">
+                                        Cadastrar <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -56,6 +62,54 @@
         </div>
     </div>
 </main>
+
+<section id="products">
+    <div class="container-fluid">
+        <div class="row">
+            {% for product in data %}
+                <div class="col-lg-4 d-flex">
+                    <div id="content-products" class="justify-content-center align-self-center mx-auto my-3">
+                        <div class="card text-center">
+                            <div class="card-header">
+                                <span>Produto: </span> &nbsp; {{product.0}}
+                            </div>
+                            <div class="card-body black-text rounded-bottom">
+                                <h4 class="card-title">
+                                    <span>Nome: </span> &nbsp; {{product.1}}
+                                </h4>
+                                <hr class="hr-light">
+                                <p class="card-text black-text mb-4">
+                                    <span>Estoque: </span> &nbsp; {{product.2}} &nbsp;&nbsp;
+                                    <span>Preço: </span> &nbsp; {{product.3}}
+                                </p>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-primary btn-sm">
+                                        <span>Categoria:</span> &nbsp; {{categories.0.1}}
+                                    </button>
+                                    <form action="/delete/produto/{{product.0}}" method="POST">
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                    &nbsp; &nbsp;
+                                    <a href="/update/produto/{{product.0}}" type="button" class="btn btn-warning btn-sm">
+                                        <i class="fas fa-pen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-lg-12 d-flex">
+                    <div id="content-products" class="justify-content-center align-self-center mx-auto my-3 text-center">
+                        <h2>NÃO TEM MAIS PRODUTOS NESTA SEÇÃO</h2>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
 {% endblock %}
 
