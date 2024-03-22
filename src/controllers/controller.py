@@ -76,8 +76,12 @@ class UpdateProdutoController(MethodView):
 
         # Executa uma instrução SQL para atualizar os detalhes do produto com o código fornecido
         with mysql.cursor() as cur:
-            cur.execute('UPDATE produtos SET code=%s, name=%s, stock=%s, value=%s WHERE code=%s', (produtoCode, name, stock, value, code))
-            cur.connection.commit()
+            try:
+                cur.execute('UPDATE produtos SET code=%s, name=%s, stock=%s, value=%s WHERE code=%s', (produtoCode, name, stock, value, code))
+                cur.connection.commit()
+                flash('PRODUTO EDITADO COM SUCESSO', 'success')
+            except:
+                flash('PRODUTO EDITADO COM SUCESSO', 'error')
             # Redireciona para a página inicial após a atualização
             return redirect('/')
 

@@ -6,21 +6,56 @@
 
 <!-- Inicia o bloco 'content', que substituirá o bloco correspondente no template base -->
 
-<form action="/update/produto/{{produto.0}}" method="POST">
-    <!-- Formulário com método POST e rota "/" -->
-    <input type="number" name="code" value="{{produto.0}}" placeholder="CÓDIGO DO PRODUTO">
-    <!-- Campo de entrada para o código do produto -->
-    <input type="text" name="name" value="{{produto.1}}" placeholder="NOME DO PRODUTO">
-    <!-- Campo de entrada para o nome do produto -->
-    <input type="number" name="stock" value="{{produto.2}}" placeholder="DISPONIBILIDADE">
-    <!-- Campo de entrada para a disponibilidade do produto -->
-    <input type="number" name="value" value="{{produto.3}}" placeholder="VALOR DO PRODUTO">
-    <!-- Campo de entrada para o valor do produto -->
-    <input type="text" name="category" value="{{produto.4}}" placeholder="CATEGORIA DO PRODUTO">
-    <!-- Campo de entrada para a categoria do produto -->
+<section id="edit-product">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-lg-12">
+                <div id="content-edit-product" class="align-self-center mx-auto my-5">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            Editar Produto
+                        </div>
+                        <div class="card-body">
+                            <form action="/update/produto/{{produto.0}}" method="POST" class="px-5">
+                                <div class="md-form row">
+                                    <div class="col">
+                                        <input type="number" name="code" value="{{produto.0}}" class="form-control"
+                                            id="codeInput" required autofocus>
+                                        <label for="codeInput">Produto ID</label>
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" name="name" value="{{produto.1}}" class="form-control"
+                                            id="nameInput" required autofocus>
+                                        <label for="nameInput">Nome do Produto</label>
+                                    </div>
+                                </div>
 
-    <button type="submit">ATUALIZAR</button>
-    <!-- Botão de envio do formulário -->
-</form>
+                                <div class="md-form row">
+                                    <div class="col">
+                                        <input type="number" name="stock" value="{{produto.2}}" class="form-control"
+                                            id="stockInput" required autofocus>
+                                        <label for="stockInput">Produto Estoque</label>
+                                    </div>
+                                    <div class="col">
+                                        <input type="number" name="value" value="{{produto.3}}" class="form-control"
+                                            id="valueInput" required autofocus>
+                                        <label for="valueInput">Valor</label>
+                                    </div>
+                                </div>
+
+                                <div class="md-form">
+                                    <button class="btn btn-success btn-block">
+                                        Editar Produto <i class="fas fa-pen"></i>
+                                    </button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}
